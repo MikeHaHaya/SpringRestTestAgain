@@ -63,7 +63,8 @@ public class SpringWebTest {
         players.add(player2);
 
 //        addPlayerList(players);
-        restTemplate.postForObject(CONTROLLER_BASE_URI + "/add-player", players, ResponseEntity.class);
+//        restTemplate.postForObject(CONTROLLER_BASE_URI + "/add-player", players, ResponseEntity.class);
+        restTemplate.postForObject(CONTROLLER_BASE_URI + "/add-player", player1, ResponseEntity.class);
 
     }
 
