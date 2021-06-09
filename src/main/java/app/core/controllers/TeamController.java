@@ -26,8 +26,8 @@ public class TeamController {
     }
 
     // http://localhost:8080/team/get-player?id=(id here)
-    @GetMapping("/get-player")
-    public Player getPlayer(@RequestParam long id) {
+    @GetMapping("/get-player/{id}")
+    public Player getPlayer(@PathVariable long id) {
         return service.getPlayer(id);
     }
 
