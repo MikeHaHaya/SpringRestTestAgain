@@ -1,13 +1,18 @@
 package app.core;
 
+import app.core.beans.Game;
 import app.core.beans.Player;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 @SpringBootApplication
 public class SpringWebTest {
@@ -28,8 +33,18 @@ public class SpringWebTest {
     // Calls the add player method with random data
     private static void callAddPlayer() {
 
+        // Creates a player
         Player player = new Player();
+
+        // Creates a list of games
+        Game[] gameArray = {
+                new Game("Game1", Date.valueOf(LocalDate.of(2020, 3, 5)), 85),
+                new Game("Game2", Date.valueOf(LocalDate.of(2020, 1, 25)), 55),
+                new Game("Game3", Date.valueOf(LocalDate.of(2020, 5, 20)), 100)};
+        List<Game> gameList = Arrays.asList(gameArray);
+
         player.setName("Mike");
+        player.setGames(gameList);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));

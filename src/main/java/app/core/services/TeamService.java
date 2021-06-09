@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Service("teamService")
 @Transactional
-@DependsOn({"gameRepo", "plyRepo"})
+@DependsOn({"gameRepository", "playerRepository"})
 public class TeamService {
 
     @Autowired
