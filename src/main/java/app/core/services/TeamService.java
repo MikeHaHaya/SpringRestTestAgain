@@ -23,40 +23,40 @@ import org.springframework.web.server.ResponseStatusException;
 @DependsOn({"gameRepo", "plyRepo"})
 public class TeamService {
 
-	@Autowired
-	private PlayerRepository plyRepo;
-	@Autowired
-	private GameRepository gameRepo;
+    @Autowired
+    private PlayerRepository plyRepo;
+    @Autowired
+    private GameRepository gameRepo;
 
-	public void addPlayer(Player p){
-		plyRepo.save(p);
-	}
-	
-	public Player getPlayer(long playerId){
-		Optional<Player> opt = plyRepo.findById(playerId);
-		if (opt.isPresent())
-			return opt.get();
-		else
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-	}
-	
-	public List<Player> getPlayer(String name){
-		return plyRepo.findPlayerByName(name);
-	}
-	
-	public List<Player> getPlayers(){
-		return plyRepo.findAll();
-	}
-	
-	public List<Game> getGames(){
-		return gameRepo.findAll();
-	}
+    public void addPlayer(Player p) {
+        plyRepo.save(p);
+    }
 
-	public List<Game> getGames(Date date){
-		return gameRepo.findGameByDateEquals(date);
-	}
-	
-	public List<Game> getGames(Date from, Date to){
-		return gameRepo.findGameByDateBetween(from, to);
-	}
+    public Player getPlayer(long playerId) {
+        Optional<Player> opt = plyRepo.findById(playerId);
+        if (opt.isPresent())
+            return opt.get();
+        else
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+    }
+
+    public List<Player> getPlayer(String name) {
+        return plyRepo.findPlayerByName(name);
+    }
+
+    public List<Player> getPlayers() {
+        return plyRepo.findAll();
+    }
+
+    public List<Game> getGames() {
+        return gameRepo.findAll();
+    }
+
+    public List<Game> getGames(Date date) {
+        return gameRepo.findGameByDateEquals(date);
+    }
+
+    public List<Game> getGames(Date from, Date to) {
+        return gameRepo.findGameByDateBetween(from, to);
+    }
 }
