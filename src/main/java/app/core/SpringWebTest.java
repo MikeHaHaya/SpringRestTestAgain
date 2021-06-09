@@ -25,7 +25,7 @@ public class SpringWebTest {
     public static void main(String[] args) {
         SpringApplication.run(SpringWebTest.class, args);
 
-        callAddPlayer();
+//        callAddPlayer();
 //        callGetPlayer();
 //        callGetPlayers();
 //        callGetPlayersByName();
@@ -62,10 +62,7 @@ public class SpringWebTest {
         players.add(player1);
         players.add(player2);
 
-//        addPlayerList(players);
-//        restTemplate.postForObject(CONTROLLER_BASE_URI + "/add-player", players, ResponseEntity.class);
-        restTemplate.postForObject(CONTROLLER_BASE_URI + "/add-player", player1, ResponseEntity.class);
-
+        addPlayerList(players);
     }
 
     // Calls the get player method with id=1
